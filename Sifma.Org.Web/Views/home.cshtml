@@ -1,23 +1,72 @@
-﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Home>
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Home>
 
 @using Clean.Core.Models.ViewModels
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
+@using Sifma.Org.Web.Services
+@inject IThemeService ThemeService
 
 @{
     Layout = "master.cshtml";
+    var isDarkMode = ThemeService.IsDarkModeEnabled();
 }
 
-@await Html.PartialAsync("~/Views/Partials/pageHeader.cshtml", new PageHeaderViewModel(Model.Name, Model.Title, Model.Subtitle, Model.MainImage))
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body class="@(isDarkMode ? "dark-mode" : "")">
+    @await Html.PartialAsync("~/Views/Partials/pageHeader.cshtml", new PageHeaderViewModel(Model.Name, Model.Title, Model.Subtitle, Model.MainImage))
 
-@if (Model.ContentRows != null)
-{
-    <article>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-10 mx-auto">
-                    @Html.GetBlockListHtml(Model.ContentRows)
+    @if (Model.ContentRows != null)
+    {
+        <article>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-10 mx-auto">
+                        @Html.GetBlockListHtml(Model.ContentRows)
+                    </div>
                 </div>
             </div>
-        </div>
-    </article>
-}
+        </article>
+    }
+
+    <style>
+    body.dark-mode {
+        background-color: #121212;
+        color: #ffffff;
+    }
+
+    .dark-mode a {
+        color: #bb86fc;
+    }
+
+    .dark-mode h1, 
+    .dark-mode h2, 
+    .dark-mode h3,
+    .dark-mode p,
+    .dark-mode article {
+        color: #ffffff;
+    }
+
+    .dark-mode .content-list {
+        color: #ffffff;
+    }
+
+    .dark-mode .content-list article {
+        background-color: #1e1e1e;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 4px;
+    }
+
+    .dark-mode .content-list article:hover {
+        background-color: #2d2d2d;
+    }
+
+    .dark-mode .posted-by {
+        color: #aaaaaa;
+    }
+    </style>
+</body>
+</html>
