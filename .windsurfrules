@@ -1,0 +1,141 @@
+# SIFMA Web - Umbraco CMS Project
+
+Whenever a rule from this file is used, just say "from rules" in cascade.
+
+## Overview
+SIFMA Web is an Umbraco-based content management system designed to manage and deliver content efficiently and securely. The inital step is to replicate the existing website at https://sifma.org.sg using Umbraco CMS. Use https://docs.umbraco.com/umbraco-cms for framework documentation.
+
+## Prerequisites
+- .NET Core SDK (version 9.0 or higher)
+- Umbraco CMS (version 9.0 or higher)
+- SQL Server
+- Node.js and npm (for front-end asset management)
+- Visual Studio 2022 or VS Code
+
+## Project Structure
+```plaintext
+/
+├── App_Data/            # Umbraco data files
+├── App_Plugins/         # Custom Umbraco plugins
+├── Config/              # Configuration files
+├── Controllers/         # MVC & API controllers
+├── Models/             
+    ├── ViewModels/     # View-specific models
+    ├── DocumentTypes/  # Umbraco document type models
+    └── DTOs/          # Data transfer objects
+├── Views/              
+    ├── Partials/      # Partial views
+    ├── MacroPartials/ # Macro partial views
+    └── Surface/       # Surface controller views
+├── www
+```
+
+## Tech Stack
+- .NET Core
+- Umbraco CMS
+- C#
+- SQL Server
+- Azure DevOps
+- uSync
+- Examine (for search)
+
+## Naming Conventions
+- Use PascalCase for class names and public members
+- Use camelCase for private fields
+- Prefix interface names with 'I'
+- Use plural names for controllers (e.g., NewsController)
+- Use singular names for models (e.g., NewsItem)
+- Suffix controllers with "Controller"
+- Suffix services with "Service"
+
+## C# Coding Standards
+- Use C# latest version features appropriately
+- Implement async/await patterns for I/O operations
+- Use nullable reference types
+- Implement proper dependency injection
+- Use string interpolation over concatenation
+- Use expression-bodied members when appropriate
+- Implement IDisposable where needed
+
+## Umbraco Specific
+- Follow Umbraco conventions for document types and templates
+- Use strongly-typed models for document types
+- Implement proper caching strategies
+- Use Umbraco's built-in dependency injection
+- Follow Umbraco upgrade procedures
+- Use uSync for content/schema version control
+- Implement custom sections/trees following Umbraco guidelines
+
+## State Management
+- Use proper caching strategies
+- Implement proper session management
+- Use distributed caching when necessary
+- Handle application state properly
+
+## Error Handling
+- Implement proper exception handling
+- Use ILogger for logging
+- Create custom exceptions when needed
+- Implement proper error pages
+- Use Application Insights for monitoring
+
+## Testing
+- Write unit tests using xUnit
+- Implement integration tests
+- Use proper mocking (Moq)
+- Test Umbraco surface controllers
+- Implement proper test coverage
+
+## Security
+- Follow OWASP security guidelines
+- Implement proper authentication
+- Use proper authorization attributes
+- Sanitize user inputs
+- Implement proper CORS policies
+- Use secure communication (HTTPS)
+- Follow Umbraco security best practices
+
+## Git Usage
+Commit Message Prefixes:
+- "fix:" for bug fixes
+- "feat:" for new features
+- "perf:" for performance improvements
+- "docs:" for documentation changes
+- "style:" for formatting changes
+- "refactor:" for code refactoring
+- "test:" for adding missing tests
+- "chore:" for maintenance tasks
+
+Rules:
+- Use descriptive commit messages
+- Reference Azure DevOps work items
+- Keep commits focused and atomic
+- Use proper branching strategy
+- Follow GitFlow workflow
+
+## Documentation
+- Maintain comprehensive README
+- Document API endpoints
+- Document configuration settings
+- Use XML documentation for public APIs
+- Document Umbraco customizations
+- Keep deployment guides updated
+
+## Development Workflow
+- Use Azure DevOps for project management
+- Follow proper branching strategy
+- Implement CI/CD pipelines
+- Use proper staging environments
+- Follow semantic versioning
+- Maintain changelog
+- Follow Umbraco upgrade procedures
+- Make sure uSync is used for content/schema version control
+
+## Performance
+- Implement proper caching
+- Use async/await properly
+- Optimize database queries
+- Implement proper indexing
+- Use CDN for static assets
+- Monitor application insights
+- Regular performance testing
